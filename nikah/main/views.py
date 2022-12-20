@@ -1,8 +1,19 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 def index(request):
-    return render(request, 'main/index.html')
+    data = { 
+        'title': 'Главная страница!!!',
+        'values': ['Some', 'Hello', '123'],
+        'obj': { 
+            'car': 'bmw',
+            'age': '18',
+            'hobby': 'footbal'
+        }
+
+    }
+    return render(request, 'main/index.html', data)
+
+
 
 def about(request):
-    return HttpResponse("<h4>Страница про нас</h4>")
+    return render(request, 'main/about.html')

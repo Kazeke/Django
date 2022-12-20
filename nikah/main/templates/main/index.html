@@ -1,12 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h4>Страница главная</h4>
-</body>
-</html>
+{% extends 'main/layout.html' %} 
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <div class="features">
+        <h1>{{ title }}</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi accusantium corrupti, enim error maiores perspiciatis iste dolorem cum commodi unde doloremque perferendis incidunt velit at sequi voluptates est minus iusto.</p>
+        <button class="btn btn-warning">На страницу про нас</button>
+
+        {% for el in values %}
+            {% if el == 'Hello' %}
+                {% filter upper %}
+                    <p>{{ el }}</p>
+                {% endfilter %}
+            {% endif %}
+
+        {% endfor %}
+
+        {% for el in obj %}
+            <p>{{ el }}</p>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}
